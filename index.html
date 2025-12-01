@@ -1,159 +1,125 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>แชร์เพื่อรับสิทธิ์พิเศษ</title>
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แชร์ให้เพื่อน</title>
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
-  <style>
+<style>
     body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(180deg, #0A0F1F 0%, #08111B 100%);
-      font-family: 'Prompt', sans-serif;
-      color: #fff;
-      text-align: center;
+        margin: 0;
+        background: #000;
+        font-family: 'Prompt', sans-serif;
+        text-align: center;
+        color: #fff;
     }
 
     .container {
-      padding: 40px 20px;
-    }
-
-    .main-image {
-      width: 100%;
-      border-radius: 18px;
-      box-shadow: 0 0 20px rgba(255, 221, 85, 0.5);
-    }
-
-    .title {
-      margin-top: 25px;
-      font-size: 26px;
-      font-weight: 700;
-    }
-
-    .subtitle {
-      margin-top: 10px;
-      font-size: 18px;
-      opacity: 0.85;
+        margin-top: 40px;
+        padding: 10px;
     }
 
     .share-btn {
-      margin-top: 35px;
-      padding: 15px 30px;
-      background: linear-gradient(90deg, #FFD400, #FFB800);
-      border-radius: 50px;
-      color: #000;
-      font-size: 20px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 0 14px rgba(255, 221, 85, 0.85);
-      transition: 0.25s;
+        margin-top: 25px;
+        padding: 16px 30px;
+        font-size: 22px;
+        border-radius: 14px;
+        border: none;
+        background: linear-gradient(90deg,#ffdf00,#ffa800);
+        color: #000;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 0 15px #ffcc00;
+        animation: pulse 1.5s infinite;
     }
 
-    .share-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 22px rgba(255, 221, 85, 1);
+    @keyframes pulse {
+        0% { box-shadow: 0 0 10px #ffcc00; }
+        50% { box-shadow: 0 0 25px #ffcc00; }
+        100% { box-shadow: 0 0 10px #ffcc00; }
     }
-  </style>
+</style>
 </head>
 
 <body>
-  <div class="container">
-    <img src="https://img5.pic.in.th/file/secure-sv1/1d02d32c-f2d1-4f2a-8460-e76837ed8a9f.jpg"
-         class="main-image" />
+<div class="container">
+    <h2>💸 กดแชร์เพื่อรับสิทธิ์ 💸</h2>
+    <button class="share-btn" onclick="shareFlex()">กดแชร์ให้เพื่อน/กลุ่ม</button>
+</div>
 
-    <div class="title">🎉 รับสิทธิ์พิเศษทันที!</div>
-    <div class="subtitle">แชร์ไปยังเพื่อน/กลุ่มใน LINE เพื่อรับสิทธิ์</div>
+<script>
+const LIFF_ID = "2008464608-82AG0rK3";   // ใส่ของคุณ
 
-    <div class="share-btn" onclick="sendFlex()">🔗 กดแชร์ให้เพื่อน/กลุ่ม</div>
-  </div>
+async function shareFlex() {
+    await liff.init({ liffId: LIFF_ID });
 
-  <script>
-    // ------------------------ Flex Content ------------------------
-    const flexMessage = {
-      type: "flex",
-      altText: "กดรับเครดิตฟรี 100 บาท",
-      contents: {
-        type: "bubble",
-        size: "giga",
-        body: {
-          type: "box",
-          layout: "vertical",
-          backgroundColor: "#0A0F1F",
-          paddingAll: "0px",
-          contents: [
-            {
-              type: "image",
-              url: "https://img5.pic.in.th/file/secure-sv1/1d02d32c-f2d1-4f2a-8460-e76837ed8a9f.jpg",
-              size: "full",
-              aspectRatio: "1:1.6",
-              aspectMode: "cover"
-            },
-            {
-              type: "box",
-              layout: "vertical",
-              paddingAll: "20px",
-              backgroundColor: "#0A0F1F",
-              contents: [
-                {
-                  type: "text",
-                  text: "🎉 รับสิทธิ์พิเศษทันที!",
-                  weight: "bold",
-                  size: "xl",
-                  color: "#FFFFFF",
-                  align: "center"
-                },
-                {
-                  type: "box",
-                  layout: "vertical",
-                  cornerRadius: "14px",
-                  paddingAll: "12px",
-                  backgroundColor: "#FFD400",
-                  borderWidth: "3px",
-                  borderColor: "#FFE87A",
-                  contents: [
+    const flexMsg = {
+        type: "flex",
+        altText: "กดรับสิทธิ์เลย!",
+        contents: {
+            type: "bubble",
+            size: "mega",
+            body: {
+                type: "box",
+                layout: "vertical",
+                paddingAll: "0px",
+                contents: [
                     {
-                      type: "text",
-                      text: "💸 รับฟรีทันที 100.- 💸",
-                      weight: "bold",
-                      size: "lg",
-                      color: "#000",
-                      align: "center"
+                        type: "image",
+                        url: "https://img5.pic.in.th/file/secure-sv1/1d02d32c-f2d1-4f2a-8460-e76837ed8a9f.jpg",
+                        size: "full",
+                        aspectRatio: "1:1.6",
+                        aspectMode: "cover"
                     }
-                  ]
-                },
-                {
-                  type: "text",
-                  text: "สมัคร/ฝาก/ถอน ออโต้ 24 ชม.",
-                  size: "md",
-                  color: "#FFFFFFCC",
-                  align: "center",
-                  margin: "md"
-                }
-              ]
+                ]
+            },
+            footer: {
+                type: "box",
+                layout: "vertical",
+                backgroundColor: "#000000",
+                paddingAll: "16px",
+                contents: [
+                    {
+                        type: "text",
+                        text: "💸เครดิตฟรี 100 บาท💸",
+                        color: "#FFD700",
+                        weight: "bold",
+                        size: "md",
+                        align: "center"
+                    },
+                    {
+                        type: "button",
+                        action: {
+                            type: "uri",
+                            label: "💸 เครดิตฟรี100฿ 💸",
+                            uri: "https://lin.ee/rvqj1DHt"
+                        },
+                        style: "primary",
+                        color: "#FFD700",
+                        margin: "md"
+                    },
+                    {
+                        type: "button",
+                        action: {
+                            type: "uri",
+                            label: "🌟 สมัคร/ฝาก/ถอน",
+                            uri: "https://usbetrich.com/"
+                        },
+                        style: "primary",
+                        color: "#444444",
+                        margin: "md"
+                    }
+                ]
             }
-          ]
         }
-      }
     };
 
-    // ------------------------ LIFF INIT ------------------------
-    async function initLiff() {
-      await liff.init({ liffId: "2008464608-82AG0rK3" }); // << ใส่ LIFF ID ตรงนี้
-    }
-    initLiff();
+    liff.shareTargetPicker([flexMsg])
+        .then(() => { console.log("Shared"); })
+        .catch((err) => { console.error("Error:", err); });
+}
+</script>
 
-    // ------------------------ SHARE BUTTON ------------------------
-    async function sendFlex() {
-      if (!liff.isLoggedIn()) {
-        liff.login();
-        return;
-      }
-
-      await liff.shareTargetPicker([flexMessage]);
-    }
-  </script>
 </body>
-
 </html>
