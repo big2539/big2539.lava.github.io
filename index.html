@@ -49,88 +49,89 @@
 </div>
 
 <script>
-const LIFF_ID = "2008464608-82AG0rK3";   // ใส่ของคุณ
+const LIFF_ID = "2008464608-82AG0rK3";
 
 async function shareFlex() {
+
     await liff.init({ liffId: LIFF_ID });
 
     const flexMsg = {
-    type: "flex",
-    altText: "กดรับสิทธิ์เลย!",
-    contents: {
-        type: "bubble",
-        size: "mega",
+        type: "flex",
+        altText: "กดรับสิทธิ์เลย!",
+        contents: {
+            type: "bubble",
+            size: "mega",
 
-        hero: {
-            type: "image",
-            url: "https://img5.pic.in.th/file/secure-sv1/1d02d32c-f2d1-4f2a-8460-e76837ed8a9f.jpg",
-            size: "full",
-            aspectRatio: "1:1.6",
-            aspectMode: "cover"
-        },
+            hero: {
+                type: "image",
+                url: "https://img5.pic.in.th/file/secure-sv1/1d02d32c-f2d1-4f2a-8460-e76837ed8a9f.jpg",
+                size: "full",
+                aspectRatio: "1:1.6",
+                aspectMode: "cover"
+            },
 
-        body: {
-            type: "box",
-            layout: "vertical",
-            backgroundColor: "#111111",
-            spacing: "md",
-            paddingAll: "16px",
-            contents: [
-                {
-                    type: "text",
-                    text: "💸เครดิตฟรี 100 บาท💸",
-                    color: "#FFD700",
-                    weight: "bold",
-                    size: "md",
-                    align: "center"
-                },
-                {
-                    type: "button",
-                    action: {
-                        type: "uri",
-                        label: "💸 เครดิตฟรี100฿ 💸",
-                        uri: "https://lin.ee/rvqj1DHt"
+            body: {
+                type: "box",
+                layout: "vertical",
+                backgroundColor: "#111111",
+                spacing: "md",
+                paddingAll: "16px",
+                contents: [
+                    {
+                        type: "text",
+                        text: "💸เครดิตฟรี 100 บาท💸",
+                        color: "#FFD700",
+                        weight: "bold",
+                        size: "md",
+                        align: "center"
                     },
-                    style: "primary",
-                    color: "#FFD700",
-                    margin: "md"
-                },
-                {
-                    type: "button",
-                    action: {
-                        type: "uri",
-                        label: "🌟 สมัคร/ฝาก/ถอน",
-                        uri: "https://usbetrich.com/"
+                    {
+                        type: "button",
+                        action: {
+                            type: "uri",
+                            label: "💸 เครดิตฟรี100฿ 💸",
+                            uri: "https://lin.ee/rvqj1DHt"
+                        },
+                        style: "primary",
+                        color: "#FFD700",
+                        margin: "md"
                     },
-                    style: "primary",
-                    color: "#444444",
-                    margin: "md"
-                },
-                {
-                    type: "text",
-                    text: "สมัคร/ฝาก/ถอน ออโต้ 24 ชม.",
-                    color: "#ffffffcc",
-                    align: "center",
-                    wrap: true,
-                    margin: "md"
-                }
-            ]
-        },
+                    {
+                        type: "button",
+                        action: {
+                            type: "uri",
+                            label: "🌟 สมัคร/ฝาก/ถอน",
+                            uri: "https://usbetrich.com/"
+                        },
+                        style: "primary",
+                        color: "#444444",
+                        margin: "md"
+                    },
+                    {
+                        type: "text",
+                        text: "สมัคร/ฝาก/ถอน ออโต้ 24 ชม.",
+                        color: "#ffffffcc",
+                        align: "center",
+                        wrap: true,
+                        margin: "md"
+                    }
+                ]
+            },
 
-        styles: {
-            hero: { backgroundColor: "#000000" },
-            body: { backgroundColor: "#111111" }
+            styles: {
+                hero: { backgroundColor: "#000000" },
+                body: { backgroundColor: "#111111" }
+            }
         }
-    }
-};
-liff.shareTargetPicker([flexMsg])
-    .then(() => {
-        console.log("shared");
-    })
-    .catch((err) => {
-        console.error(err);
-        alert("กรุณาเปิดใน LINE");
-    });
+    };
+
+    liff.shareTargetPicker([flexMsg])
+        .then(() => console.log("shared"))
+        .catch((err) => {
+            console.error(err);
+            alert("กรุณาเปิดใน LINE");
+        });
+}
 </script>
 
 </body>
