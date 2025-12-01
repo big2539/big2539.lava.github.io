@@ -138,71 +138,80 @@
   function shareFlex() {
 
       const flex = {
-        type: "flex",
-        altText: "💸 เครดิตฟรี 100฿",
-        contents: {
-          type: "bubble",
-          size: "mega",
-          hero: {
-            type: "image",
-            url: "https://img5.pic.in.th/file/secure-sv1/1d02d32c-f2d1-4f2a-8460-e76837ed8a9f.jpg",
-            size: "full",
-            aspectRatio: "1:1",
-            aspectMode: "cover"
-          },
-          body: {
-            type: "box",
-            layout: "vertical",
-            backgroundColor: "#1a1a1a",
-            spacing: "md",
-            paddingAll: "20px",
-            contents: [
-              {
-                type: "text",
-                text: "🎉 เว็บใหญ่มาแรงเชื่อือได้แน่นอน",
-                weight: "bold",
-                size: "xl",
-                color: "#ffda4f",
-                align: "center"
-              },
-              {
-                type: "button",
-                style: "primary",
-                color: "#ffd54f",
-                action: {
-                  type: "uri",
-                  label: "💸เครดิตฟรี100฿.💸",
-                  uri: "https://lin.ee/rvqj1DHt"
-                }
-              },
-              {
-                type: "button",
-                style: "primary",
-                color: "#ffbd34",
-                action: {
-                  type: "uri",
-                  label: "🌟 สมัคร/ฝาก/ถอน",
-                  uri: "https://usbetrich.com/"
-                }
-              },
-              {
-                type: "text",
-                text: "กดรับสิทธิ์ง่ายๆ เพียงกดแชร์!",
-                color: "#ffffffbb",
-                align: "center",
-                wrap: true,
-                margin: "md"
-              }
-            ]
+        {
+  "type": "flex",
+  "altText": "รับเครดิตฟรี 100฿",
+  "contents": {
+    "type": "bubble",
+    "size": "mega",
+    "hero": {
+      "type": "image",
+      "url": "https://img5.pic.in.th/file/secure-sv1/1d02d32c-f2d1-4f2a-8460-e76837ed8a9f.jpg",
+      "size": "full",
+      "aspectRatio": "4:5",
+      "aspectMode": "cover"
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "backgroundColor": "#0B0F2E",
+      "paddingAll": "20px",
+      "contents": [
+        {
+          "type": "text",
+          "text": "🎉 รับเครดิตฟรี 100฿ 🎉",
+          "weight": "bold",
+          "size": "xl",
+          "color": "#FFD700",
+          "align": "center",
+          "margin": "md"
+        },
+        {
+          "type": "text",
+          "text": "กดปุ่มด้านล่างเพื่อรับสิทธิ์ทันที!",
+          "size": "sm",
+          "color": "#B8B8FF",
+          "align": "center",
+          "wrap": true,
+          "margin": "sm"
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "backgroundColor": "#0B0F2E",
+      "paddingAll": "15px",
+      "contents": [
+        {
+          "type": "button",
+          "style": "primary",
+          "height": "sm",
+          "color": "#FFCC00",
+          "action": {
+            "type": "uri",
+            "label": "💸เครดิตฟรี100฿💸",
+            "uri": "https://lin.ee/rvqj1DHt"
+          }
+        },
+        {
+          "type": "button",
+          "style": "primary",
+          "height": "sm",
+          "color": "#6A5ACD",
+          "action": {
+            "type": "uri",
+            "label": "⭐ สมัคร/ฝาก/ถอน ⭐",
+            "uri": "https://usbetrich.com/"
           }
         }
-      };
-
-      liff.shareTargetPicker([flex])
-        .catch(() => alert("⚠ กรุณาเปิดในแอป LINE"));
+      ]
+    },
+    "styles": {
+      "footer": {
+        "separator": false
+      }
+    }
   }
-
-</script>
-
-</body>
-</html>
+}
