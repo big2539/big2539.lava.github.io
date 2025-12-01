@@ -123,11 +123,14 @@ async function shareFlex() {
         }
     }
 };
-
-    liff.shareTargetPicker([flex])
-        .then(() => { console.log("Shared"); })
-        .catch((err) => { console.error("Error:", err); });
-}
+liff.shareTargetPicker([flexMsg])
+    .then(() => {
+        console.log("shared");
+    })
+    .catch((err) => {
+        console.error(err);
+        alert("กรุณาเปิดใน LINE");
+    });
 </script>
 
 </body>
