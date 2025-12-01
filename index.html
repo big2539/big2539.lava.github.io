@@ -3,199 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>แชร์รับเครดิตฟรี 100.-</title>
+<title>แชร์เพื่อรับเครดิตฟรี 100.-</title>
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Prompt', sans-serif;
-    background: linear-gradient(135deg, #0a0a0a, #1f1f1f);
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #000, #1a1a1a, #000);
     color: #fff;
     text-align: center;
     animation: fadeIn 1.2s ease-in-out;
   }
 
-  /* Light Mode */
-  @media (prefers-color-scheme: light) {
-    body {
-      background: linear-gradient(135deg, #ffffff, #f2f2f2);
-      color: #222;
-    }
-  }
-
-  .logo {
-    width: 110px;
-    margin-top: 25px;
-    animation: fadeIn 1.5s ease-in-out;
+  .container {
+    padding: 25px;
   }
 
   h2 {
-    margin-top: 10px;
-    font-size: 26px;
-    font-weight: 600;
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 20px;
+
+    background: linear-gradient(90deg, #ffe680, #ffdd55, #ffe792);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: glowTitle 2s infinite alternate;
   }
 
-  .counter {
-    font-size: 22px;
-    margin-top: 8px;
-    color: #ffcc00;
-    font-weight: bold;
+  @keyframes glowTitle {
+    from { text-shadow: 0 0 5px #ffdf7eaa; }
+    to   { text-shadow: 0 0 18px #ffe89aaa; }
   }
 
   img.preview {
-    width: 90%;
-    border-radius: 14px;
-    margin-top: 20px;
-    box-shadow: 0 0 15px #ffcc00aa;
+    width: 92%;
+    border-radius: 18px;
+    margin-top: 25px;
+    box-shadow: 0 0 25px #ffcf4faa, 0 0 50px #ffcf4f33;
     animation: fadeIn 1.5s ease-in-out;
   }
 
   .share-btn {
-    margin-top: 30px;
-    padding: 18px 45px;
+    margin-top: 35px;
+    padding: 18px 55px;
     font-size: 22px;
     font-weight: bold;
+
     border-radius: 50px;
     border: none;
     cursor: pointer;
-    color: #000;
-    background: #ffcc00;
-    box-shadow: 0 0 12px #ffcc00, 0 0 25px #ffcc00aa;
+
+    color: #1a1a1a;
+    background: linear-gradient(90deg, #ffe57f, #ffdf4f, #ffd43b);
+
+    box-shadow:
+      0 0 12px #ffdd4faa,
+      0 0 24px #ffea98aa,
+      inset 0 0 10px #ffffff88;
+
+    backdrop-filter: blur(6px);
+
     transition: 0.25s;
+    animation: pulseGlow 2s infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%   { box-shadow: 0 0 10px #ffdf4f, 0 0 20px #ffea95aa; }
+    50%  { box-shadow: 0 0 20px #ffe680, 0 0 35px #fff5b9aa; }
+    100% { box-shadow: 0 0 10px #ffd84f, 0 0 20px #ffeb9aaa; }
   }
 
   .share-btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 20px #ffd700, 0 0 35px #ffea00aa;
+    transform: scale(1.07);
+    box-shadow: 0 0 25px #ffe680, 0 0 55px #fff3bb;
   }
 
   p {
     font-size: 18px;
-    margin-top: 20px;
-    opacity: 0.9;
+    margin-top: 18px;
+    opacity: 0.85;
   }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 </style>
 </head>
 
 <body>
 
-  <!-- โลโก้ -->
-  <img class="logo" src="https://img2.pic.in.th/pic/4dbea791-c0e3-46b2-83fa-c6f7a5b3f848.jpg">
+<!-- เสียงคลิก -->
+<audio id="click-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_f4b9e1242e.mp3?filename=click-124467.mp3"></audio>
+
+<div class="container">
 
   <h2>กดแชร์เพื่อรับสิทธิ์ทันที!</h2>
 
-  <!-- Counter -->
-  <div class="counter">เหลือเวลา <span id="timer">30</span> วินาที</div>
-
-  <!-- ภาพ -->
   <img class="preview"
-    src="https://img2.pic.in.th/pic/4dbea791-c0e3-46b2-83fa-c6f7a5b3f848.jpg"
-    alt="preview">
+    src="https://img5.pic.in.th/file/secure-sv1/1d02d32c-f2d1-4f2a-8460-e76837ed8a9f.jpg">
 
-  <button class="share-btn" onclick="shareFlex()">กดแชร์ให้เพื่อน/กลุ่ม</button>
+  <button class="share-btn" onclick="playSound(); shareFlex();">
+    ✨ กดแชร์ให้เพื่อน/กลุ่ม ✨
+  </button>
 
-  <p>แชร์ไปยังเพื่อนหรือกลุ่มเพื่อส่ง Flex Message อัตโนมัติ</p>
+  <p>แชร์ Flex เพื่อรับเครดิตฟรี 100฿ อัตโนมัติ</p>
 
-  <!-- เสียงเอฟเฟกต์ -->
-  <audio id="clickSound">
-    <source src="https://www.myinstants.com/media/sounds/click_1.mp3" type="audio/mpeg">
-  </audio>
+</div>
 
 <script>
+
   // -------------------------
-  // 1) Init LIFF
+  // Init LIFF
   // -------------------------
   document.addEventListener("DOMContentLoaded", function () {
       liff.init({ liffId: "2008464608-82AG0rK3" });
-      startCounter();
   });
 
   // -------------------------
-  // 2) นับถอยหลัง
+  // เล่นเสียงเมื่อกดปุ่ม
   // -------------------------
-  function startCounter() {
-      let timeLeft = 30; // ปรับเวลาได้
-      const timer = document.getElementById("timer");
-
-      const countdown = setInterval(() => {
-          timeLeft--;
-          timer.textContent = timeLeft;
-
-          if (timeLeft <= 0) {
-              clearInterval(countdown);
-              timer.textContent = "หมดเวลา";
-          }
-      }, 1000);
+  function playSound() {
+      document.getElementById("click-sound").play();
   }
 
   // -------------------------
-  // 3) Flex Message 
+  // Flex Message
   // -------------------------
   function shareFlex() {
-      document.getElementById("clickSound").play(); // เล่นเสียงคลิก
 
       const flex = {
-          type: "flex",
-          altText: "💸 รับทุนฟรี 100.- คลิกเลย!",
-          contents: {
-              type: "bubble",
-              size: "giga",
-              hero: {
-                  type: "image",
-                  url: "https://img2.pic.in.th/pic/4dbea791-c0e3-46b2-83fa-c6f7a5b3f848.jpg",
-                  size: "full",
-                  aspectRatio: "1:1",
-                  aspectMode: "cover"
+        type: "flex",
+        altText: "💸 เครดิตฟรี 100฿",
+        contents: {
+          type: "bubble",
+          size: "mega",
+          hero: {
+            type: "image",
+            url: "https://img5.pic.in.th/file/secure-sv1/1d02d32c-f2d1-4f2a-8460-e76837ed8a9f.jpg",
+            size: "full",
+            aspectRatio: "1:1",
+            aspectMode: "cover"
+          },
+          body: {
+            type: "box",
+            layout: "vertical",
+            backgroundColor: "#1a1a1a",
+            spacing: "md",
+            paddingAll: "20px",
+            contents: [
+              {
+                type: "text",
+                text: "🎉 รับเครดิตฟรี 100฿ ทันที!",
+                weight: "bold",
+                size: "xl",
+                color: "#ffda4f",
+                align: "center"
               },
-              body: {
-                  type: "box",
-                  layout: "vertical",
-                  backgroundColor: "#1a1a1a",
-                  spacing: "md",
-                  contents: [
-                      {
-                          type: "text",
-                          text: "🎉 รับสิทธิ์พิเศษทันที!",
-                          weight: "bold",
-                          size: "xl",
-                          color: "#ffdd00",
-                          align: "center"
-                      },
-                      {
-                          type: "button",
-                          style: "primary",
-                          color: "#ffcc00",
-                          action: {
-                              type: "uri",
-                              label: "💸รับทุนฟรี100.-💸",
-                              uri: "https://winnerwn.carrd.co"
-                          }
-                      },
-                      {
-                          type: "text",
-                          text: "สมัคร/ฝาก/ถอน ออโต้ 24 ชม.",
-                          color: "#ffffffcc",
-                          align: "center",
-                          wrap: true
-                      }
-                  ]
+              {
+                type: "button",
+                style: "primary",
+                color: "#ffd54f",
+                action: {
+                  type: "uri",
+                  label: "💸เครดิตฟรี100฿.💸",
+                  uri: "https://lin.ee/rvqj1DHt"
+                }
+              },
+              {
+                type: "button",
+                style: "primary",
+                color: "#ffbd34",
+                action: {
+                  type: "uri",
+                  label: "🌟 สมัคร/ฝาก/ถอน",
+                  uri: "https://usbetrich.com/"
+                }
+              },
+              {
+                type: "text",
+                text: "กดรับสิทธิ์ง่ายๆ เพียงกดแชร์!",
+                color: "#ffffffbb",
+                align: "center",
+                wrap: true,
+                margin: "md"
               }
+            ]
           }
+        }
       };
 
       liff.shareTargetPicker([flex])
-          .then(() => {})
-          .catch((err) => {
-              alert("กรุณาเปิดลิงก์ใน LINE");
-          });
+        .catch(() => alert("⚠ กรุณาเปิดในแอป LINE"));
   }
+
 </script>
 
 </body>
